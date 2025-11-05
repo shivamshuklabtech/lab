@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Form Validation</title>
+    <style>
+      body {
+        background-color: #f0f2f5;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+      .container {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+        text-align: left;
+      }
+      h1 {
+        text-align: center;
+        color: #004d99;
+        margin-bottom: 25px;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      label {
+        font-weight: bold;
+        color: #555;
+        margin-bottom: 5px;
+        display: block;
+      }
+      input[type="text"],
+      input[type="password"],
+      textarea,
+      select {
+        width: 100%;
+        padding: 12px;
+        margin-top: 8px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+      textarea {
+        resize: vertical;
+      }
+      .radio-group label,
+      .checkbox-group label {
+        display: inline-block;
+        margin-right: 15px;
+        font-weight: normal;
+      }
+      input[type="submit"],
+      input[type="reset"] {
+        width: 48%;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      input[type="submit"] {
+        background-color: #007bff;
+      }
+      input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+      input[type="reset"] {
+        background-color: #dc3545;
+      }
+      input[type="reset"]:hover {
+        background-color: #c82333;
+      }
+      .required-star {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Registration Form</h1>
+      <form onsubmit="return formValidator()" action="success.html">
+        <!-- Name -->
+        <label>First Name <span class="required-star">*</span></label>
+        <input type="text" id="firstname" placeholder="Minimum 6 characters" />
+
+        <label>Last Name <span class="required-star">*</span></label>
+        <input type="text" id="lastname" />
+
+        <!-- Email -->
+        <label>Email Address <span class="required-star">*</span></label>
+        <input type="text" id="email" placeholder="e.g., user@example.com" />
+
+        <!-- Password -->
+        <label>Password <span class="required-star">*</span></label>
+        <input type="password" id="pass" placeholder="Minimum 6 characters" />
+
+        <!-- Phone -->
+        <label>Phone Number <span class="required-star">*</span></label>
+        <input type="text" id="mobileno" placeholder="10 digits only" />
+
+        <!-- Gender -->
+        <label>Gender: <span class="required-star">*</span></label>
+        <div class="radio-group">
+          <input type="radio" name="gender" id="male_gender" value="Male" />
+          <label for="male_gender">Male</label>
+          <input type="radio" name="gender" id="female_gender" value="Female" />
+          <label for="female_gender">Female</label>
+        </div>
+
+        <!-- Date of Birth -->
+        <label>Date of Birth: <span class="required-star">*</span></label>
+        <div style="display: flex; gap: 10px">
+          <select id="day">
+            <option value="">Day</option>
+          </select>
+          <select id="month">
+            <option value="">Month</option>
+            <option>Jan</option>
+            <option>Feb</option>
+            <option>Mar</option>
+            <option>Apr</option>
+            <option>May</option>
+            <option>Jun</option>
+            <option>Jul</option>
+            <option>Aug</option>
+            <option>Sep</option>
+            <option>Oct</option>
+            <option>Nov</option>
+            <option>Dec</option>
+          </select>
+          <select id="year">
+            <option value="">Year</option>
+          </select>
+        </div>
+
+        <!-- Languages Known -->
+        <label>Languages Known: <span class="required-star">*</span></label>
+        <div class="checkbox-group">
+          <input type="checkbox" id="eng" value="English" />
+          <label for="eng">English</label>
+          <input type="checkbox" id="tel" value="Telugu" />
+          <label for="tel">Telugu</label>
+          <input type="checkbox" id="hin" value="Hindi" />
+          <label for="hin">Hindi</label>
+          <input type="checkbox" id="tam" value="Tamil" />
+          <label for="tam">Tamil</label>
+        </div>
+
+        <!-- Address -->
+        <label>Address <span class="required-star">*</span></label>
+        <textarea rows="2" cols="20" id="addr"></textarea>
+
+        <!-- Submit -->
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Reset" />
+      </form>
+    </div>
+
+    <script>
+      // Populate day & year dropdown
+      window.onload = function () {
+        let daySel = document.getElementById("day");
+        for (let i = 1; i <= 31; i++) {
+          daySel.innerHTML += "<option>" + i + "</option>";
+        }
+        let yearSel = document.getElementById("year");
+        let currentYear = new Date().getFullYear();
+        for (let i = currentYear; i >= 1950; i--) {
+          yearSel.innerHTML += "<option>" + i + "</option>";
+        }
+      };
+
+      function formValidator() {
+        let firstname = document.getElementById("firstname");
+        let lastname = document.getElementById("lastname");
+        let email = document.getElementById("email");
+        let pass = document.getElementById("pass");
+        let mobileno = document.getElementById("mobileno");
+        let addr = document.getElementById("addr");
+
+        // First Name
+        if (!/^[a-zA-Z]{6,}$/.test(firstname.value)) {
+          alert("First Name must be at least 6 letters (alphabets only).");
+          firstname.focus();
+          return false;
+        }
+        // Last Name
+        if (!/^[a-zA-Z]+$/.test(lastname.value)) {
+          alert("Last Name must contain only alphabets.");
+          lastname.focus();
+          return false;
+        }
+        // Email
+        if (!/^[\w\.-]+@[a-zA-Z0-9\.-]+\.[a-z]{2,4}$/.test(email.value)) {
+          alert("Enter a valid email address.");
+          email.focus();
+          return false;
+        }
+        // Password
+        if (!/^[0-9a-zA-Z]{6,}$/.test(pass.value)) {
+          alert("Password must be at least 6 alphanumeric characters.");
+          pass.focus();
+          return false;
+        }
+        // Phone
+        if (!/^[0-9]{10}$/.test(mobileno.value)) {
+          alert("Phone number must be exactly 10 digits.");
+          mobileno.focus();
+          return false;
+        }
+        // Gender
+        if (![...document.getElementsByName("gender")].some((r) => r.checked)) {
+          alert("Please select your gender.");
+          return false;
+        }
+        // DOB
+        if (
+          document.getElementById("day").value === "" ||
+          document.getElementById("month").value === "" ||
+          document.getElementById("year").value === ""
+        ) {
+          alert("Please select complete Date of Birth.");
+          return false;
+        }
+        // Languages
+        if (
+          ![...document.querySelectorAll(".checkbox-group input")].some(
+            (c) => c.checked
+          )
+        ) {
+          alert("Please select at least one language.");
+          return false;
+        }
+        // Address
+        if (addr.value.trim() === "") {
+          alert("Please enter your address.");
+          addr.focus();
+          return false;
+        }
+
+        alert("Form submitted successfully!");
+        return true;
+      }
+    </script>
+  </body>
+</html>

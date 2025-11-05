@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Computer Science and Engineering</title>
+    <style>
+      body {
+        background-color: #f0f8ff; /* Soft, attractive background color */
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #004d99;
+        font-size: 32px;
+        margin-bottom: 25px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 15px;
+      }
+
+      td {
+        padding: 10px 0;
+        vertical-align: middle;
+      }
+
+      td:first-child {
+        text-align: right;
+        padding-right: 20px;
+        font-weight: bold;
+        color: #555;
+      }
+
+      select,
+      input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+
+      select {
+        background-color: #f9f9f9;
+      }
+
+      input[type="submit"] {
+        padding: 12px 30px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+
+      .cost-info {
+        color: #666;
+        margin-top: 30px;
+        font-size: 14px;
+        white-space: pre-wrap; /* Maintains formatting like your original <pre> tag */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Computer Science and Engineering</h1>
+      <br />
+      <form method="post" action="order.html">
+        <table>
+          <tr>
+            <td>Text Books</td>
+            <td>
+              <select name="book">
+                <option value="" selected disabled>Select the book</option>
+                <option value="Java">Java</option>
+                <option value="Oracle">Oracle</option>
+                <option value="Ms SQL Server">Ms SQL Server</option>
+                <option value="MySql">MySql</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Quantity</td>
+            <td><input type="text" name="quantity" id="q" /></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <input type="submit" value="OK" />
+            </td>
+          </tr>
+        </table>
+      </form>
+      <div class="cost-info">
+        <p>Cost of one book is "500" + shipping "100"</p>
+      </div>
+    </div>
+  </body>
+</html>

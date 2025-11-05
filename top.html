@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Top Frame</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "comic sans ms", cursive;
+        background-color: rgb(163, 208, 226);
+      }
+      .navbar {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        padding: 15px 0;
+        background: linear-gradient(to right, #ffcc00, #e6a7d1);
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+      ?
+    </style>
+  </head>
+  <body bgcolor="YellowGreen">
+    <img src="images/logo.png" width="125" height="115" align="left" />
+    <img src="images/sir-apjn.png" width="125" height="115" align="right" />
+
+    <center>
+      <marquee bgcolor="yellow" width="650" behavior="alternate">
+        <font face="Brush Script MT" size="8" color="green">
+          <b><i>Online Book Store</i></b>
+        </font>
+      </marquee>
+      <br />
+      <font face="Brush Script" size="6" color="white">
+        <b>Created & Maintained By SRMCEM</b>
+      </font>
+    </center>
+
+    <div class="navbar">
+      <a href="index.html" target="_parent" id="home-link">HOME</a>
+      <a href="login.html" target="rightframe" id="login-link">LOGIN</a>
+      <a href="registration.html" target="rightframe" id="registration-link"
+        >REGISTER</a
+      >
+      <a href="catalogue.html" target="rightframe" id="catalogue-link"
+        >CATALOGUE</a
+      >
+      <a href="cart.html" target="rightframe" id="cart-link">CART</a>
+    </div>
+
+    <script>
+      function highlightActiveLink(page) {
+        document.querySelectorAll(".navbar a").forEach((link) => {
+          link.classList.remove("active");
+        });
+
+        if (page === "login.html") {
+          document.getElementById("login-link").classList.add("active");
+        } else if (page === "registration.html") {
+          document.getElementById("registration-link").classList.add("active");
+        } else if (page === "catalogue.html") {
+          document.getElementById("catalogue-link").classList.add("active");
+        } else if (page === "cart.html") {
+          document.getElementById("cart-link").classList.add("active");
+        } else {
+          document.getElementById("home-link").classList.add("active");
+        }
+      }
+    </script>
+  </body>
+</html>
