@@ -1,11 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart Page</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Cart Page</title>
 </head>
 <body>
-    <h1>Cart</h1>
+<h1>Cart</h1>
+
+<table border="1" width="100%" cellpadding="8" cellspacing="0" aria-label="cart">
+    <thead>
+        <tr>
+            <th>Book</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <img src="book1.jpg" alt="Introduction to Algorithms cover" height="60" align="middle">
+                Introduction to Algorithms
+            </td>
+            <td>Thomas</td>
+            <td>$70.00</td>
+            <td><input type="number" min="1" value="1" aria-label="Quantity for Introduction to Algorithms" size="3"></td>
+            <td><button type="button">Remove</button></td>
+        </tr>
+        <!-- Additional items go here -->
+    </tbody>
+</table>
+
+<p><a href="/checkout" role="button">Proceed to Checkout</a></p>
 </body>
 </html>
+
