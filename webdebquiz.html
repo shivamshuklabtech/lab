@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Web Dev Quiz</title>
+<style>
+body{
+    font-family:Arial;
+    background:#f2f2f2;
+}
+.box{
+    width:320px;
+    margin:80px auto;
+    background:white;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h3>Web Development Quiz</h3>
+
+<p>1. HTML is used for?</p>
+<input type="radio" name="q1"> Structure<br>
+<input type="radio" name="q1"> Styling<br>
+<input type="radio" name="q1"> Logic<br><br>
+
+<p>2. CSS is used for?</p>
+<input type="radio" name="q2"> Structure<br>
+<input type="radio" name="q2"> Styling<br>
+<input type="radio" name="q2"> Database<br><br>
+
+<p>3. JavaScript is used for?</p>
+<input type="radio" name="q3"> Styling<br>
+<input type="radio" name="q3"> Logic<br>
+<input type="radio" name="q3"> Markup<br><br>
+
+<button onclick="check()">Submit</button>
+<p id="result"></p>
+</div>
+
+<script>
+function check(){
+    var score = 0;
+    if(document.getElementsByName("q1")[0].checked) score++;
+    if(document.getElementsByName("q2")[1].checked) score++;
+    if(document.getElementsByName("q3")[1].checked) score++;
+
+    document.getElementById("result").innerHTML =
+    "Your Score: " + score + "/3";
+}
+</script>
+
+</body>
+</html>

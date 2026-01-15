@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Survey</title>
+<style>
+body{font-family:Arial;background:#f2f2f2;}
+.box{
+    width:300px;
+    margin:80px auto;
+    background:white;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h3>Student Survey</h3>
+
+<p>Are you satisfied with college?</p>
+<input type="radio" name="ans"> Yes <br>
+<input type="radio" name="ans"> No <br><br>
+
+<button onclick="submit()">Submit</button>
+<p id="msg"></p>
+</div>
+
+<script>
+function submit(){
+    document.getElementById("msg").innerHTML = "Thank you for your response!";
+}
+</script>
+
+</body>
+</html>
